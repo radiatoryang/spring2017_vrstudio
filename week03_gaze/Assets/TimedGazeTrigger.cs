@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+
+using UnityEngine.Events; // you need this to use UnityEvents
 
 using UnityEngine.UI; // you need this to talk to UI elements, like Images
 
@@ -9,6 +10,7 @@ public class TimedGazeTrigger : MonoBehaviour {
 
 	// "SerializeField" exposes private vars to the inspector
 	[SerializeField] float timeLookedAt = 0f; // time, in seconds, we've spent looking at this thing
+
 	public Image progressImage; // don't forget: assign this in Unity Inspector
 
 	public UnityEvent OnGazeComplete = new UnityEvent();
