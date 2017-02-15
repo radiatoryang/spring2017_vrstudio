@@ -24,8 +24,10 @@ public class InteractionPickup : MonoBehaviour {
 
 	// this happens whenever a hand is near this object
 	void HandHoverUpdate( Hand hand ) {
-		// this applies to either Vive controller
-		if ( hand.GetStandardInteractionButton() == true ) { // on Vive controller, this is trigger
+		// this applies to either Vive controller, "Hand" can be abstracted as anything
+		// on Vive controller, by default "StandardInteractionButton" is the trigger
+		// lastly, we check AttachedObjects.Count to make sure you pick up only 1 thing at a time
+		if ( hand.GetStandardInteractionButton() == true && hand.AttachedObjects.Count == 0 ) { 
 			hand.AttachObject( gameObject );
 		}
 	}
